@@ -11,7 +11,10 @@ function DropBox(props) {
                 { props.label }
             </label>
             <select required={ props.required } onChange={ dropBoxOnChange }>
-                {props.itens.map(item => <option key={ item }>{item}</option>)}
+                { props.itens.map(item => 
+                <option key={ item }>
+                    { item }
+                </option>) }
             </select>
         </div>
     )

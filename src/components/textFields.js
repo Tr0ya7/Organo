@@ -1,7 +1,6 @@
 import '../styles/components/textFields.css'
 
 function TextFields(props) {
-
     function textFieldOnChange(event) {
         props.change(event.target.value)
     }
@@ -11,7 +10,12 @@ function TextFields(props) {
             <label>
                 { props.label }
             </label>
-            <input required={ props.required }  value={ props.inputValue } placeholder={ props.placeholder } onChange={ textFieldOnChange } />
+            <input 
+                required={ props.required }  
+                value={ props.inputValue } 
+                placeholder={ props.placeholder } 
+                onChange={ textFieldOnChange } 
+            />
         </div>
     )
 }
