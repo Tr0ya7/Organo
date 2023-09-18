@@ -1,12 +1,14 @@
 import '../styles/components/peoples.css'
+import { AiFillCloseCircle } from 'react-icons/ai'
 
 function Peoples(props) {
     return (
         <div className="peoples">
-            <div className="header">
+            <AiFillCloseCircle className="delete" size={25} onClick={ props.onClick } />
+            <div className="header" style={{ background: props.background }}>
                 <img src={ props.image } alt={ props.name } />
             </div>
-            <div className="">
+            <div className="footer">
                 <h4>
                     { props.name }
                 </h4>

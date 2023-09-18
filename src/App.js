@@ -42,6 +42,10 @@ function App() {
   function submit(info) {
     setInfo([...infos, info])
   }
+
+  function onDelete() {
+    alert('click no deletar')
+  }
   
   return (
     <div className="App">
@@ -49,10 +53,11 @@ function App() {
       <Form teams={ teams.map(team => team.name) } submit={ value => submit(value) } />
       { teams.map( team => 
         <Teams
-          key={ team.name } 
-          secondColor={ team.secondColor } 
-          primaryColor={ team.firstColor } 
-          inf={ infos.filter(value => value.team == team.name) }
+          key={ team.name }
+          secondColor={ team.secondColor }
+          onClick={ onDelete }
+          primaryColor={ team.firstColor }
+          inf={ infos.filter(value => value.team === team.name) }
         >
           { team.name }
         </Teams>) }

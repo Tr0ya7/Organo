@@ -6,7 +6,7 @@ import TextFields from './textFields'
 
 function Form(props) {
     const [name, setName] = useState('')
-    const [post, setPost] = useState('')
+    const [staff, setStaff] = useState('')
     const [image, setImage] = useState('')
     const [team, setTeam] = useState('')
 
@@ -14,7 +14,7 @@ function Form(props) {
         event.preventDefault()
         props.submit({
             name,
-            post,
+            staff,
             image,
             team
         })
@@ -35,10 +35,10 @@ function Form(props) {
                 />
                 <TextFields 
                     label="Cargo" 
-                    value={ post } 
+                    value={ staff }
                     required="true" 
                     placeholder="Digite seu cargo" 
-                    change={ value => setPost(value) }
+                    change={ value => setStaff(value) }
                 />
                 <TextFields 
                     label="Imagem" 

@@ -3,6 +3,12 @@
   display: block;
   text-align: center;
   margin: 0;
+  position: relative;
+}
+.team .input-color {
+  position: absolute;
+  top: 21%;
+  right: 5%;
 }
 .team h3 {
   font-size: 32px;
@@ -10,7 +16,7 @@
   display: inline-block;
   padding-bottom: 8px;
 }
-.team div {
+.team .team-peoples {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
