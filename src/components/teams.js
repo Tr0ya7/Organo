@@ -1,24 +1,33 @@
 import '../styles/components/teams.css'
 import Peoples from './Peoples'
+import hexToRgba from 'hex-to-rgba'
 
 function Teams(props) {
     return (
-        props.inf.length > 0 ? <section className="team" style={{ backgroundColor: props.secondColor }}>
+        props.peoples.length > 0 ? <section 
+                                        className="team" 
+                                        style={{ backgroundColor: hexToRgba(props.secondColor, .6) }}
+                                    >
+            <input
+                type="color"
+                className="input-color"
+                value={ props.primaryColor }
+                onChange={ event => props.onChangeColor(event.target.value, props.id) }
+            />
             <h3 style={{ borderColor: props.primaryColor }}>
-                { props.children }
+                { props.name }
             </h3>
-            <input type="color" className="input-color" />
             <div className="team-peoples">
-                { props.inf.map((info, Ikey) => {
+                { props.peoples.map((people, peopleKey) => {
                     return <Peoples 
-                            key={ Ikey } 
-                            onClick={ props.onClick }
-                            background={ props.primaryColor } //É declarado como props para pegar um elemento fora desse map
-                            name={ info.name } //É declarado como inf para inserir no array das informações infos no componente/arquivo app.js
-                            staff={ info.staff }
-                            image={ info.image }
-                           />
-                }) }
+                                key={ peopleKey } 
+                                onClick={ props.onClick }
+                                background={ props.primaryColor } //É declarado como props para pegar um elemento fora desse map
+                                name={ people.name } //É declarado como people para inserir no array das informações infos no componente/arquivo app.js
+                                staff={ people.staff }
+                                image={ people.image }
+                            />
+                }) } 
             </div>
         </section>
         : ''

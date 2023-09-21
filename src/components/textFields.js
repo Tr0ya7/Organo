@@ -10,11 +10,11 @@ function TextFields(props) {
             <label>
                 { props.label }
             </label>
-            <input 
-                required={ props.required }  
-                value={ props.inputValue } 
-                placeholder={ props.placeholder } 
-                onChange={ textFieldOnChange } 
+            <input
+                value={ props.inputValue }
+                placeholder={ props.placeholder }
+                onChange={ textFieldOnChange }
+                required={ props.required }
             />
         </div>
     )
