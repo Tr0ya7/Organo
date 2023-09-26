@@ -1,4 +1,4 @@
-import '../styles/components/button.css'
+import '../styles/components/button.scss'
 
 function Button(props) {
     return <button>{ props.children }</button>

@@ -1,10 +1,10 @@
-import '../styles/components/peoples.css'
+import '../styles/components/peoples.scss'
 import { AiFillCloseCircle } from 'react-icons/ai'
 
 function Peoples(props) {
     return (
         <div className="peoples">
-            <AiFillCloseCircle className="delete" size={25} onClick={ props.onClick(props.id) } />
+            <AiFillCloseCircle className="delete" size={25} onClick={ () => props.onClick(props.id) } />
             <div className="header" style={{ background: props.background }}>
                 <img src={ props.image } alt={ props.name } />
             </div>

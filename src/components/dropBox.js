@@ -1,4 +1,4 @@
-import '../styles/components/dropBox.css'
+import '../styles/components/dropBox.scss'
 
 function DropBox(props) {
     function dropBoxOnChange(event) {
@@ -8,10 +8,10 @@ function DropBox(props) {
     return (
         <div>
             <label>
-                { props.label }
+                { props.children }
             </label>
             <select required={ props.required } onChange={ dropBoxOnChange }>
-                { props.itens.map(item => 
+                { props.itens.map(item =>
                 <option key={ item }>
                     { item }
                 </option>) }

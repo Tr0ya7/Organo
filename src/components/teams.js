@@ -1,5 +1,5 @@
-import '../styles/components/teams.css'
-import Peoples from './Peoples'
+import '../styles/components/teams.scss'
+import Peoples from './peoples'
 import hexToRgba from 'hex-to-rgba'
 
 function Teams(props) {

@@ -1,4 +1,4 @@
-import '../styles/components/textFields.css'
+import '../styles/components/textFields.scss'
 
 function TextFields(props) {
     function textFieldOnChange(event) {
@@ -8,7 +8,7 @@ function TextFields(props) {
     return (
         <div className="textFields">
             <label>
-                { props.label }
+                { props.children }
             </label>
             <input
                 value={ props.inputValue }

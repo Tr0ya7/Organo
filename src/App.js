@@ -2,37 +2,37 @@ import { useState } from 'react'
 import Banner from './components/banner'
 import Form from './components/form'
 import Teams from './components/teams'
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuid } from 'uuid'
 
 function App() {
   const [teams, setTeams] = useState([
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Programação',
       color: '#57c278',
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Front-End',
       color: '#82cffa',
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Data Science',
       color: '#a6d157',
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'UX e Design',
       color: '#db6ebf',
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Mobile',
       color: '#ffba05',
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Inovação e Gestão',
       color: '#ff8a29',
     },
@@ -40,91 +40,91 @@ function App() {
 
   const inicial = [
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
       team: teams[0].name
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
       team: teams[0].name
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
       team: teams[0].name
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
       team: teams[1].name
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
       team: teams[1].name
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
       team: teams[2].name
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
       team: teams[2].name
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
       team: teams[3].name
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
       team: teams[3].name
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Matheus',
       staff: 'Dev. jr',
       image: 'https://github.com/parra666.png',
       team: teams[4].name
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Nword',
       staff: 'Dev. jr',
       image: 'https://github.com/Nword.png',
       team: teams[4].name
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Eu',
       staff: 'Dev. jr',
       image: 'https://github.com/eu.png',
       team: teams[5].name
     },
     {
-      id: uuidv4(),
+      id: uuid(),
       name: 'Sigma',
       staff: 'Dev. jr',
       image: 'https://github.com/sigma.png',
@@ -134,8 +134,8 @@ function App() {
 
   const [peoples, setPeoples] = useState(inicial)
 
-  function onDelete(props) {
-    console.log('click no deletar: ', props)
+  function onDelete(id) {
+    setPeoples(peoples.filter(people => people.id !== id))
   }
 
   function onChangeColor(color, id) {
@@ -149,17 +149,25 @@ function App() {
       return team
     }))
   }
+
+  function newTeamOnSubmit(newTeam) {
+    setTeams([...teams, { ...newTeam, id: uuid() }])
+  }
   
   return (
     <div className="App">
       <Banner />
-      <Form teams={ teams.map(team => team.name) } submit={ value => setPeoples([...peoples, value]) } />
+      <Form 
+        teams={ teams.map(team => team.name) } 
+        submit={ value => setPeoples([...peoples, value]) } 
+        newTeamOnSubmit={ newTeamOnSubmit }
+      />
       { teams.map( team => 
         <Teams
           key={ team.name }
           secondColor={ team.color }
-          name={team.name}
-          id={team.id}
+          name={ team.name }
+          id={ team.id }
           primaryColor={ team.color }
           onChangeColor={ onChangeColor }
           onClick={ onDelete }
