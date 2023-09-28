@@ -6,11 +6,12 @@ function TextFields(props) {
     }
 
     return (
-        <div className="textFields">
+        <div className={`textFields textFields-${props.type}`}>
             <label>
                 { props.children }
             </label>
             <input
+                type={ props.type }
                 value={ props.inputValue }
                 placeholder={ props.placeholder }
                 onChange={ textFieldOnChange }

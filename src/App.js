@@ -44,91 +44,104 @@ function App() {
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
-      team: teams[0].name
+      team: teams[0].name,
+      fav: false
     },
     {
       id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
-      team: teams[0].name
+      team: teams[0].name,
+      fav: false
     },
     {
       id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
-      team: teams[0].name
+      team: teams[0].name,
+      fav: false
     },
     {
       id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
-      team: teams[1].name
+      team: teams[1].name,
+      fav: false
     },
     {
       id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
-      team: teams[1].name
+      team: teams[1].name,
+      fav: false
     },
     {
       id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
-      team: teams[2].name
+      team: teams[2].name,
+      fav: false
     },
     {
       id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
-      team: teams[2].name
+      team: teams[2].name,
+      fav: false
     },
     {
       id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
-      team: teams[3].name
+      team: teams[3].name,
+      fav: false
     },
     {
       id: uuid(),
       name: 'Luiz Henrique de Souza Barros',
       staff: 'Dev. jr',
       image: 'https://github.com/Tr0ya7.png',
-      team: teams[3].name
+      team: teams[3].name,
+      fav: false
     },
     {
       id: uuid(),
       name: 'Matheus',
       staff: 'Dev. jr',
       image: 'https://github.com/parra666.png',
-      team: teams[4].name
+      team: teams[4].name,
+      fav: false
     },
     {
       id: uuid(),
       name: 'Nword',
       staff: 'Dev. jr',
       image: 'https://github.com/Nword.png',
-      team: teams[4].name
+      team: teams[4].name,
+      fav: false
     },
     {
       id: uuid(),
       name: 'Eu',
       staff: 'Dev. jr',
       image: 'https://github.com/eu.png',
-      team: teams[5].name
+      team: teams[5].name,
+      fav: false
     },
     {
       id: uuid(),
       name: 'Sigma',
       staff: 'Dev. jr',
       image: 'https://github.com/sigma.png',
-      team: teams[5].name
+      team: teams[5].name,
+      fav: false
     },
   ]
 
@@ -140,8 +153,6 @@ function App() {
 
   function onChangeColor(color, id) {
     setTeams(teams.map(team => {
-      //esse if mostra que a cor do campo que deve ser alterado é igual o nome do campo com a cor alterada -> 
-      //assim filtrando o campo pelo nome / mas caso algum campo tiver o mesmo nome ele também é alterado
       if (team.id === id) {
         team.color = color
       }
@@ -153,7 +164,17 @@ function App() {
   function newTeamOnSubmit(newTeam) {
     setTeams([...teams, { ...newTeam, id: uuid() }])
   }
-  
+
+  function favOnClick(id) {
+    setPeoples(peoples.map(people => {
+      if (people.id === id) {
+        people.fav = !people.fav
+      }
+
+      return people
+    }))
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -171,6 +192,7 @@ function App() {
           primaryColor={ team.color }
           onChangeColor={ onChangeColor }
           onClick={ onDelete }
+          favOnClick={ favOnClick }
           peoples={ peoples.filter(value => value.team === team.name) }
         /> ) }
     </div>

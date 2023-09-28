@@ -67,6 +67,9 @@ function Form(props) {
                     color
                 })
             } }>
+                <h2>
+                    Preencha os dados para criar um time
+                </h2>
                 <TextFields
                     value={ teamName } 
                     required
@@ -76,6 +79,7 @@ function Form(props) {
                     Time
                 </TextFields>
                 <TextFields 
+                    type="color"
                     value={ color }
                     required
                     placeholder="Digite a cor do novo time"

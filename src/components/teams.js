@@ -26,6 +26,7 @@ function Teams(props) {
                                 name={ people.name } //É declarado como people para inserir no array das informações infos no componente/arquivo app.js
                                 staff={ people.staff }
                                 image={ people.image }
+                                favOnClick={ props.favOnClick }
                             />
                 }) } 
             </div>
