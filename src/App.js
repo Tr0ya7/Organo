@@ -121,14 +121,6 @@ function App() {
     },
     {
       id: uuid(),
-      name: 'Nword',
-      staff: 'Dev. jr',
-      image: 'https://github.com/Nword.png',
-      team: teams[4].name,
-      fav: false
-    },
-    {
-      id: uuid(),
       name: 'Eu',
       staff: 'Dev. jr',
       image: 'https://github.com/eu.png',
